@@ -1,0 +1,20 @@
+C:\Kobedi\Kong\Kafka\kafka_2.12-3.0.0\config\zookeeper.properties
+
+------start Zookeeper------------------------
+zookeeper-server-start.bat .\config\zookeeper.properties
+
+
+---------startKafka Server-------------------
+kafka-server-start.bat .\config\server.properties
+
+
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic javainuse-topic
+
+
+kafka-console-producer.bat --broker-list localhost:9092 --topic javainuse-topic Hola Kobedi
+
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic javainuse-topic --from-beginning
+
+
+	
